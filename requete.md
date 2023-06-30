@@ -95,7 +95,10 @@ WHERE nom_potion = 'Santé'
 
 ### exo9
 ```
-
+SELECT p.nom_personnage, b.dose_boire
+FROM personnage p
+INNER JOIN boire b ON p.id_personnage = b.id_personnage
+ORDER BY dose_boire DESC  
 ```
 
 ### exo10
