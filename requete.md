@@ -81,5 +81,49 @@ ORDER BY prixPotion DESC
 
 ### exo7
 ```
+SELECT p.nom_potion, i.nom_ingredient, i.cout_ingredient, c.qte
+FROM potion p
+INNER JOIN composer c ON p.id_potion = c.id_potion
+INNER JOIN ingredient i ON c.id_ingredient = i.id_ingredient
+WHERE nom_potion = 'Santé'
+```
+
+### exo8
+```
+
+```
+
+### exo9
+```
+
+```
+
+### exo10
+```
+
+```
+
+### exo11
+```
+
+```
+
+### exo12
+```
+
+```
+
+### exo13
+```
+
+```
+
+### exo14
+```
+
+```
+
+### exo15
+```
 
 ```
