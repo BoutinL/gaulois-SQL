@@ -71,7 +71,12 @@ ORDER BY date_bataille DESC
 
 ### exo6
 ```
-
+SELECT nom_potion, SUM(c.qte * i.cout_ingredient) AS prixPotion
+FROM potion p
+INNER JOIN composer c ON p.id_potion = c.id_potion
+INNER JOIN ingredient i ON c.id_ingredient = i.id_ingredient
+GROUP BY p.id_potion
+ORDER BY prixPotion DESC
 ```
 
 ### exo7
