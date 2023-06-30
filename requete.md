@@ -9,10 +9,9 @@ LIKE '%um'
 
 ### exo2
 ```
-SELECT DISTINCT nom_lieu
-FROM lieu 
-INNER JOIN personnage ON lieu.id_lieu = personnage.id_lieu;
-SELECT COUNT(*)
-FROM personnage
-GROUP BY nom_lieu
+SELECT nom_lieu, COUNT(p.id_lieu) AS nbrPersonnages
+FROM lieu l
+INNER JOIN personnage p ON l.id_lieu = p.id_lieu
+GROUP BY l.id_lieu
+ORDER BY nbrPersonnages DESC
 ```
