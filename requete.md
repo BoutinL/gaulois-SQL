@@ -49,5 +49,32 @@ SELECT nom_personnage, sp.nom_specialite, adresse_personnage, l.nom_lieu
 FROM personnage p
 INNER JOIN specialite sp ON sp.id_specialite = p.id_specialite
 INNER JOIN lieu l ON l.id_lieu = p.id_lieu 
-ORDER BY l.nom_lieu, nom_personnage
+ORDER BY l.nom_lieu, p.nom_personnage
+```
+
+### exo4
+```
+SELECT nom_specialite, COUNT(p.id_personnage) AS nbrPersonnages
+FROM specialite sp
+INNER JOIN personnage p ON sp.id_specialite = p.id_specialite
+GROUP BY p.id_specialite
+ORDER BY nbrPersonnages DESC
+```
+
+### exo5
+```
+SELECT nom_bataille, DATE_FORMAT(date_bataille, "%d/%m/%Y"), l.nom_lieu
+FROM bataille b
+INNER JOIN lieu l ON b.id_lieu = l.id_lieu
+ORDER BY date_bataille DESC
+```
+
+### exo6
+```
+
+```
+
+### exo7
+```
+
 ```
