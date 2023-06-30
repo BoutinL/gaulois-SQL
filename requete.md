@@ -108,12 +108,20 @@ ORDER BY dose_boire DESC
 
 ### exo11
 ```
-
+SELECT tc.nom_type_casque, COUNT(c.id_type_casque) AS nbrTypeCasques, SUM(c.cout_casque) AS prixTotal
+FROM type_casque tc 
+INNER JOIN casque c ON tc.id_type_casque = c.id_type_casque
+GROUP BY tc.id_type_casque
+ORDER BY prixTotal DESC
 ```
 
 ### exo12
 ```
-
+SELECT nom_potion
+FROM potion p
+INNER JOIN composer c ON p.id_potion = c.id_potion
+INNER JOIN ingredient i ON c.id_ingredient = i.id_ingredient
+WHERE nom_ingredient = 'Poisson frais'
 ```
 
 ### exo13
