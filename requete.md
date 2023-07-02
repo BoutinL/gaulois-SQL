@@ -131,6 +131,10 @@ WHERE nom_ingredient = 'Poisson frais'
 
 ### exo14
 ```
+SELECT nom_personnage
+FROM personnage p
+INNER JOIN boire b ON p.id_personnage = b.id_personnage
+WHERE NOT EXISTS 
 
 ```
 
@@ -138,3 +142,11 @@ WHERE nom_ingredient = 'Poisson frais'
 ```
 
 ```
+
+Suite 
+
+```
+INSERT INTO personnage (nom_personnage, id_specialite, adresse_personnage, id_lieu)
+VALUES ('Champdeblix', '12', 'Ferme Hantassion', '6')
+```
+
