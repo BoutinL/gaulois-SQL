@@ -173,7 +173,13 @@ FROM boire b
 
 ### exo15
 ```
-
+SELECT nom_personnage 
+FROM personnage p
+WHERE p.id_personnage IN (
+SELECT id_personnage
+FROM autoriser_boire ab
+WHERE ab.id_potion != '1'
+)
 ```
 
 Suite 
