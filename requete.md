@@ -184,8 +184,30 @@ WHERE ab.id_potion != '1'
 
 Suite 
 
+### A
 ```
 INSERT INTO personnage (nom_personnage, id_specialite, adresse_personnage, id_lieu)
 VALUES ('Champdeblix', '12', 'Ferme Hantassion', '6')
 ```
 
+### B
+```
+
+```
+
+### C
+```
+
+```
+
+### D
+```
+UPDATE personnage 
+SET adresse_personnage = 'Condate'
+WHERE personnage.id_personnage = '23'
+```
+
+### F
+```
+
+```
