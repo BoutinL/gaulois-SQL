@@ -1,29 +1,5 @@
 # Exo Gaulois
 
-Sur sql.sh il faudra regarder :
-
--- SELECT FROM
-
--- WHERE
-
--- ORDER BY
-
--- GROUP BY
-
--- COUNT
-
--- SUM
-
--- DATE_FORMAT
-
--- INNER JOIN
-
--- INSERT
-
--- UPDATE 
-
--- DELETE
-
 ### exo1
 ```
 SELECT *
@@ -102,7 +78,6 @@ HAVING totalCasque >= ALL (
 	WHERE b.id_bataille = '1'
 	GROUP BY p.id_personnage 
 )
-
 ```
 
 ### exo9
