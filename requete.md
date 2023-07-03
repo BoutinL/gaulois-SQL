@@ -150,12 +150,14 @@ WHERE nom_ingredient = 'Poisson frais'
 SELECT nom_lieu, COUNT(p.id_personnage) AS nbrPerso
 FROM lieu l
 INNER JOIN personnage p ON l.id_lieu = p.id_lieu
+WHERE l.id_lieu != '1'
 GROUP BY l.id_lieu
-HAVING l.id_lieu != ALL (
-SELECT l.id_lieu
+HAVING nbrPerso >= ALL (
+SELECT COUNT(p.id_personnage) AS nbrPerso
 FROM lieu l
 INNER JOIN personnage p ON l.id_lieu = p.id_lieu
 WHERE l.id_lieu != '1'
+GROUP BY l.id_lieu
 )
 ```
 
