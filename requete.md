@@ -1,7 +1,5 @@
 # Exo Gaulois
 
-Pour les requêtes SQL que tu auras besoin de faire
-
 Sur sql.sh il faudra regarder :
 
 -- SELECT FROM
@@ -90,6 +88,20 @@ WHERE nom_potion = 'Santé'
 
 ### exo8
 ```
+SELECT nom_personnage, SUM(qte) AS totalCasque
+FROM personnage p
+INNER JOIN prendre_casque pc ON p.id_personnage = pc.id_personnage
+INNER JOIN bataille b ON pc.id_bataille = b.id_bataille
+WHERE b.id_bataille = '1'
+GROUP BY p.id_personnage 
+HAVING totalCasque >= ALL (
+	SELECT SUM(qte) AS totalCasque
+	FROM personnage p
+	INNER JOIN prendre_casque pc ON p.id_personnage = pc.id_personnage
+	INNER JOIN bataille b ON pc.id_bataille = b.id_bataille
+	WHERE b.id_bataille = '1'
+	GROUP BY p.id_personnage 
+)
 
 ```
 
@@ -103,7 +115,16 @@ ORDER BY dose_boire DESC
 
 ### exo10
 ```
-
+SELECT nom_bataille, SUM(qte) AS totalCasque
+FROM bataille b
+INNER JOIN prendre_casque pc ON b.id_bataille = pc.id_bataille
+GROUP BY b.id_bataille 
+HAVING totalCasque >= ALL (
+	SELECT SUM(qte) AS totalCasque
+	FROM bataille b
+	INNER JOIN prendre_casque pc ON b.id_bataille = pc.id_bataille
+	GROUP BY b.id_bataille 
+)
 ```
 
 ### exo11
@@ -126,16 +147,26 @@ WHERE nom_ingredient = 'Poisson frais'
 
 ### exo13
 ```
-
+SELECT nom_lieu, COUNT(p.id_personnage) AS nbrPerso
+FROM lieu l
+INNER JOIN personnage p ON l.id_lieu = p.id_lieu
+GROUP BY l.id_lieu
+HAVING l.id_lieu != ALL (
+SELECT l.id_lieu
+FROM lieu l
+INNER JOIN personnage p ON l.id_lieu = p.id_lieu
+WHERE l.id_lieu != '1'
+)
 ```
 
 ### exo14
 ```
 SELECT nom_personnage
 FROM personnage p
-INNER JOIN boire b ON p.id_personnage = b.id_personnage
-WHERE NOT EXISTS 
-
+WHERE p.id_personnage NOT IN (
+SELECT id_personnage
+FROM boire b
+)
 ```
 
 ### exo15
