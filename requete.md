@@ -192,12 +192,18 @@ VALUES ('Champdeblix', '12', 'Ferme Hantassion', '6')
 
 ### B
 ```
-
+INSERT INTO autoriser_boire (id_potion, id_personnage)
+VALUES ('1','12')
 ```
 
 ### C
 ```
-
+DELETE 
+FROM casque c 
+WHERE c.id_casque NOT IN (
+SELECT id_casque 
+FROM prendre_casque pc 
+)
 ```
 
 ### D
@@ -207,7 +213,16 @@ SET adresse_personnage = 'Condate'
 WHERE personnage.id_personnage = '23'
 ```
 
-### F
+### E 
+```
+DELETE 
+FROM composer
+WHERE id_potion = '9' AND id_ingredient = '19'
 ```
 
+### F
+```
+UPDATE prendre_casque
+SET qte = '42', id_casque = '10'
+WHERE prendre_casque.id_bataille = '9'
 ```
